@@ -24,11 +24,11 @@ python3 src/main.py
 ## Equipe
 | Nome completo | RM |
 |---|---|
-| | |
-| | |
-| | |
-| | |
-| | |
+| Ana Beatriz Da Cruz Silva | RM572278 |
+| Arthur Carvalho Gomes Da Costa | RM570387 |
+| Carolina Kiyomi Hada | RM571664 |
+| Sávio Pessôa Afonso | RM570789 |
+| Victor Paes Pontes | RM572781 |
 
 ## Entrega
 O que enviar, checklist e critérios de nota estão em **[docs/ENTREGA.md](docs/ENTREGA.md)**.
