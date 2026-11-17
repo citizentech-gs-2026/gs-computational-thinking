@@ -1,0 +1,146 @@
+{
+  "casas": [
+    {
+      "nome": "Apartamento 12",
+      "bairro": "Jardim Ângela",
+      "comodos": [
+        "Quarto",
+        "Sala"
+      ]
+    }
+  ],
+  "leituras": [
+    {
+      "casa": "Apartamento 12",
+      "comodo": "Quarto",
+      "data": "2026-10-03",
+      "temp_ar": 21.0,
+      "ur_ar": 72.0,
+      "temp_parede": 16.5,
+      "orvalho": 15.76,
+      "ur_parede": 95.4,
+      "estado": "RISCO"
+    },
+    {
+      "casa": "Apartamento 12",
+      "comodo": "Sala",
+      "data": "2026-10-03",
+      "temp_ar": 22.0,
+      "ur_ar": 62.0,
+      "temp_parede": 18.5,
+      "orvalho": 14.38,
+      "ur_parede": 77.0,
+      "estado": "ATENÇÃO"
+    },
+    {
+      "casa": "Apartamento 12",
+      "comodo": "Quarto",
+      "data": "2026-10-10",
+      "temp_ar": 20.0,
+      "ur_ar": 78.0,
+      "temp_parede": 15.0,
+      "orvalho": 16.04,
+      "ur_parede": 100.0,
+      "estado": "CONDENSAÇÃO"
+    },
+    {
+      "casa": "Apartamento 12",
+      "comodo": "Sala",
+      "data": "2026-10-10",
+      "temp_ar": 23.0,
+      "ur_ar": 55.0,
+      "temp_parede": 21.0,
+      "orvalho": 13.47,
+      "ur_parede": 62.1,
+      "estado": "SECO"
+    },
+    {
+      "casa": "Apartamento 12",
+      "comodo": "Quarto",
+      "data": "2026-10-17",
+      "temp_ar": 19.5,
+      "ur_ar": 82.0,
+      "temp_parede": 15.5,
+      "orvalho": 16.34,
+      "ur_parede": 100.0,
+      "estado": "CONDENSAÇÃO"
+    },
+    {
+      "casa": "Apartamento 12",
+      "comodo": "Sala",
+      "data": "2026-10-24",
+      "temp_ar": 22.5,
+      "ur_ar": 68.0,
+      "temp_parede": 19.0,
+      "orvalho": 16.3,
+      "ur_parede": 84.3,
+      "estado": "RISCO"
+    },
+    {
+      "casa": "Apartamento 12",
+      "comodo": "Quarto",
+      "data": "2026-11-02",
+      "temp_ar": 22.0,
+      "ur_ar": 70.0,
+      "temp_parede": 17.0,
+      "orvalho": 16.27,
+      "ur_parede": 95.5,
+      "estado": "RISCO"
+    },
+    {
+      "casa": "Apartamento 12",
+      "comodo": "Sala",
+      "data": "2026-11-02",
+      "temp_ar": 24.0,
+      "ur_ar": 45.0,
+      "temp_parede": 22.5,
+      "orvalho": 11.33,
+      "ur_parede": 49.3,
+      "estado": "SECO"
+    },
+    {
+      "casa": "Apartamento 12",
+      "comodo": "Quarto",
+      "data": "2026-11-06",
+      "temp_ar": 22.0,
+      "ur_ar": 70.0,
+      "temp_parede": 16.0,
+      "orvalho": 16.27,
+      "ur_parede": 100.0,
+      "estado": "CONDENSAÇÃO"
+    },
+    {
+      "casa": "Apartamento 12",
+      "comodo": "Sala",
+      "data": "2026-11-09",
+      "temp_ar": 24.0,
+      "ur_ar": 65.0,
+      "temp_parede": 19.0,
+      "orvalho": 17.01,
+      "ur_parede": 88.3,
+      "estado": "RISCO"
+    },
+    {
+      "casa": "Apartamento 12",
+      "comodo": "Quarto",
+      "data": "2026-11-12",
+      "temp_ar": 21.5,
+      "ur_ar": 75.0,
+      "temp_parede": 16.0,
+      "orvalho": 16.88,
+      "ur_parede": 100.0,
+      "estado": "CONDENSAÇÃO"
+    },
+    {
+      "casa": "Apartamento 12",
+      "comodo": "Quarto",
+      "data": "2026-11-15",
+      "temp_ar": 23.0,
+      "ur_ar": 28.0,
+      "temp_parede": 21.0,
+      "orvalho": 3.5,
+      "ur_parede": 31.6,
+      "estado": "SECO"
+    }
+  ]
+}
