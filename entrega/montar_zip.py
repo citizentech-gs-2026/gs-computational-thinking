@@ -1,7 +1,6 @@
-"""Gera entrega/garoa-python.zip com src/*.py, dados/garoa.json, prompt.md, prompts.md e readme.md.
+"""Gera entrega/garoa-python.zip com src/*.py, dados/garoa.json, prompt.md e readme.md.
 
-O PDF da GS chama o arquivo de IA de prompt.md (Entregáveis) e de prompts.md (Sobre Uso de IA);
-por isso o ZIP leva as duas cópias, com o mesmo conteúdo.
+O nome prompt.md segue a lista de entregáveis do PDF da GS.
 
 Rode da raiz do projeto: python3 entrega/montar_zip.py
 """
@@ -11,7 +10,7 @@ import zipfile
 CAMINHO_ZIP = "entrega/garoa-python.zip"
 
 # Arquivos que não são .py e podem estar no ZIP
-PERMITIDOS = ("dados/garoa.json", "prompt.md", "prompts.md", "readme.md")
+PERMITIDOS = ("dados/garoa.json", "prompt.md", "readme.md")
 
 # (arquivo no repositório, nome dentro do ZIP)
 ARQUIVOS = (
@@ -22,7 +21,6 @@ ARQUIVOS = (
     ("src/dados.py", "src/dados.py"),
     ("dados/garoa.json", "dados/garoa.json"),
     ("prompt.md", "prompt.md"),
-    ("prompt.md", "prompts.md"),
     ("README.md", "readme.md"),
 )
 

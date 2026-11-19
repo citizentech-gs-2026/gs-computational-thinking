@@ -29,7 +29,7 @@ Aplicação Python de terminal que processa as medições e decide. Ela cadastra
 - testes/ conferência das contas com os valores de referência (`python3 testes/testar_calculos.py`)
 - entrega/montar_zip.py gera o ZIP da entrega
 
-O ZIP enviado no Teams tem só src/, dados/garoa.json, prompt.md (e uma cópia idêntica chamada prompts.md, porque o enunciado usa os dois nomes) e readme.md. As pastas docs/, testes/ e entrega/ ficam apenas no repositório.
+O ZIP enviado no Teams tem só src/, dados/garoa.json, prompt.md e readme.md. As pastas docs/, testes/ e entrega/ ficam apenas no repositório.
 
 ## Como rodar
 
