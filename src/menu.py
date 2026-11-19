@@ -22,10 +22,12 @@ OPCOES_MENU = (
 # O que cada estado quer dizer, sem culpar quem mora na casa
 MENSAGENS_ESTADO = {
     "SECO": "Parede seca. Por enquanto o mofo não tem condição de crescer.",
-    "ATENÇÃO": "A parede está ficando úmida. Vale ventilar quando o ar de fora estiver mais seco.",
+    "ATENÇÃO": "A parede está ficando úmida. Vale ventilar quando o ar de fora\n"
+               "  estiver mais seco.",
     "RISCO": "A parede está úmida o bastante para o mofo crescer, mesmo sem mancha visível.",
-    "CONDENSAÇÃO": "A parede está mais fria que o ponto de orvalho: a água do ar vira gota nela.\n"
-                   "  Isso é sinal de parede fria ou mal isolada, um problema do imóvel.",
+    "CONDENSAÇÃO": "A parede está mais fria que o ponto de orvalho: a água do ar vira\n"
+                   "  gota nela. Isso é sinal de parede fria ou mal isolada,\n"
+                   "  um problema do imóvel.",
     "SENSOR": "Leitura impossível. Confira se o sensor está bem colocado e funcionando.",
 }
 
@@ -65,7 +67,7 @@ def mostrar_menu():
 def confirmar_gravacao(dados_garoa, mensagem):
     """Grava o JSON e mostra a confirmação; devolve True se gravou."""
     if dados.salvar_dados(dados.CAMINHO_DADOS, dados_garoa):
-        print(f"\nOK: {mensagem} Dados gravados em {dados.CAMINHO_DADOS}.")
+        print(f"\nOK: {mensagem} Dados gravados em {dados.NOME_EXIBIDO}.")
         return True
     return False
 
@@ -235,7 +237,8 @@ def montar_laudo(casa, mes, leituras_mes):
         else:
             linhas.append("  Nenhuma leitura com condição de mofo neste mês.")
     linhas.append(LINHA)
-    linhas.append("Medições feitas pela família com a Garoa (ponto de orvalho pela fórmula de Magnus).")
+    linhas.append("Medições feitas pela família com a Garoa")
+    linhas.append("(ponto de orvalho calculado pela fórmula de Magnus).")
     return linhas
 
 
@@ -270,7 +273,7 @@ def gerar_laudo(dados_garoa):
 
     if entrada.ler_sim_nao("\nSalvar o laudo em arquivo de texto? (s/n): "):
         numero = dados_garoa["casas"].index(casa) + 1
-        caminho = f"dados/laudo_{mes}_casa{numero}.txt"
+        caminho = dados.caminho_laudo(mes, numero)
         if gravar_laudo(caminho, linhas):
             print(f"OK: laudo salvo em {caminho}.")
     return linhas
@@ -289,9 +292,11 @@ def mostrar_historico(dados_garoa):
         return 0
 
     print(f"\n{comodo} ({casa['nome']})")
-    print(f"{'Data':<11} {'Ar °C':>6} {'UR %':>5} {'Parede':>6} {'Orvalho':>7} {'UR par.':>7}  Estado")
+    print(f"{'Data':<11} {'Ar °C':>6} {'UR %':>5} {'Parede':>6}"
+          f" {'Orvalho':>7} {'UR par.':>7}  Estado")
     for leitura in leituras:
-        print(f"{leitura['data']:<11} {formatar(leitura['temp_ar']):>6} {formatar(leitura['ur_ar'], 0):>5}"
+        print(f"{leitura['data']:<11} {formatar(leitura['temp_ar']):>6}"
+              f" {formatar(leitura['ur_ar'], 0):>5}"
               f" {formatar(leitura['temp_parede']):>6} {formatar(leitura['orvalho']):>7}"
               f" {formatar(leitura['ur_parede']):>7}  {leitura['estado']}")
     print(f"Total: {len(leituras)} leitura(s)")

@@ -1,4 +1,4 @@
-"""Leitura e validação do que o usuário digita: a pergunta se repete até a resposta ser válida."""
+"""Leitura e validação do que o usuário digita: a pergunta se repete até ser válida."""
 
 # Dias de cada mês, de janeiro a dezembro (fevereiro é ajustado no ano bissexto)
 DIAS_POR_MES = (31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)

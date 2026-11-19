@@ -1,9 +1,17 @@
 """Leitura e gravação do arquivo dados/garoa.json e buscas nos dados."""
 
 import json
+import os
 
-# Caminho relativo: o programa é rodado da raiz do projeto (python3 src/main.py)
-CAMINHO_DADOS = "dados/garoa.json"
+# Caminhos calculados a partir da pasta deste arquivo: o programa funciona
+# de qualquer pasta em que for aberto (não depende de onde o terminal está).
+PASTA_SRC = os.path.dirname(os.path.abspath(__file__))
+PASTA_RAIZ = os.path.dirname(PASTA_SRC)
+PASTA_DADOS = os.path.join(PASTA_RAIZ, "dados")
+CAMINHO_DADOS = os.path.join(PASTA_DADOS, "garoa.json")
+
+# Nome curto do arquivo, para mostrar na tela
+NOME_EXIBIDO = "dados/garoa.json"
 
 # Campos que toda leitura guarda no JSON
 CAMPOS_LEITURA = ("casa", "comodo", "data", "temp_ar", "ur_ar", "temp_parede",
@@ -65,13 +73,19 @@ def carregar_dados(caminho):
 def salvar_dados(caminho, dados):
     """Grava os dados no JSON e devolve True se deu certo."""
     try:
+        os.makedirs(os.path.dirname(caminho), exist_ok=True)
         with open(caminho, "w", encoding="utf-8") as arquivo:
             json.dump(dados, arquivo, ensure_ascii=False, indent=2)
         return True
     except OSError:
         print(f"Erro: não foi possível gravar em {caminho}.")
-        print("      Rode o programa a partir da pasta do projeto: python3 src/main.py")
+        print("      Confira se a pasta existe e se você tem permissão para gravar nela.")
         return False
+
+
+def caminho_laudo(mes, numero_casa):
+    """Devolve o caminho do arquivo de texto do laudo, dentro da pasta dados."""
+    return os.path.join(PASTA_DADOS, f"laudo_{mes}_casa{numero_casa}.txt")
 
 
 def nomes_das_casas(dados):

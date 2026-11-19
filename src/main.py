@@ -1,4 +1,12 @@
-"""Garoa: programa de terminal que avisa antes de o mofo aparecer. Rode da raiz: python3 src/main.py"""
+"""Garoa: programa de terminal que avisa antes de o mofo aparecer.
+
+Computational Thinking with Python - Global Solution FIAP 2026.2 (CitizenTech da Minha Cidade)
+Equipe: Ana Beatriz Da Cruz Silva (RM572278), Arthur Carvalho Gomes Da Costa (RM570387),
+        Carolina Kiyomi Hada (RM571664), Sávio Pessôa Afonso (RM570789),
+        Victor Paes Pontes (RM572781)
+
+Como rodar (de qualquer pasta): python3 src/main.py
+"""
 
 import dados
 import menu
@@ -32,14 +40,16 @@ def main():
     """Carrega os dados e mantém o menu aberto até o usuário sair."""
     menu.mostrar_titulo()
     dados_garoa = dados.carregar_dados(dados.CAMINHO_DADOS)
-    print(f"{len(dados_garoa['casas'])} casa(s) e {len(dados_garoa['leituras'])} leitura(s) carregadas.")
+    total_casas = len(dados_garoa["casas"])
+    total_leituras = len(dados_garoa["leituras"])
+    print(f"{total_casas} casa(s) e {total_leituras} leitura(s) carregadas.")
 
     continuar = True
     while continuar:
         menu.mostrar_menu()
         opcao = input("Escolha uma opção: ").strip()
         continuar = executar_opcao(opcao, dados_garoa)
-    print("\nAté logo! Seus dados estão guardados em", dados.CAMINHO_DADOS)
+    print("\nAté logo! Seus dados estão guardados em", dados.NOME_EXIBIDO)
 
 
 if __name__ == "__main__":

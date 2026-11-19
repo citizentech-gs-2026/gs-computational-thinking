@@ -9,7 +9,7 @@ Onde: tarefa da disciplina no Teams · Formato: um único ZIP · Prazo: 19/11/20
 - [ ] prompt.md: uso de IA (ferramentas, prompts, o que a IA fez, como foi validado, análise crítica; ou a declaração de que não usamos IA)
 - [ ] readme.md: descrição do projeto (copiar o README.md com o nome em minúsculas no ZIP)
 
-Observação: o PDF do desafio escreve prompts.md num trecho e prompt.md na lista de entregáveis. Usamos prompt.md, como na lista de entregáveis. Vale confirmar com o professor.
+Observação: o PDF do desafio escreve prompts.md num trecho e prompt.md na lista de entregáveis. Usamos prompt.md, como na lista de entregáveis.
 
 ## Requisitos do código
 - [ ] Menu de opções com as funcionalidades principais
@@ -25,7 +25,7 @@ Observação: o PDF do desafio escreve prompts.md num trecho e prompt.md na list
 - [ ] Solução ligada ao tema (Garoa), sem ser genérica
 
 ## Só conteúdo visto na disciplina
-Pelo material das aulas: input, print, casting, if/elif/else, for, while, f-strings, funções com return, listas, tuplas e dicionários, import math, try/except e match/case (ementa e exercícios do CP3). O módulo json (open, json.load e json.dump) não aparece nos slides, mas o PDF da GS exige JSON. Não usar: datetime, pandas, requests, lambda e outras bibliotecas. Classes são permitidas, mas não são necessárias.
+Pelo material das aulas: input, print, casting, if/elif/else, for, while, f-strings, funções com return, listas, tuplas e dicionários, import math, try/except e match/case. Sem bibliotecas avançadas. Classes são permitidas, mas não são necessárias.
 
 ## Critérios (100 pontos)
 | Critério | Pontos |
@@ -40,5 +40,4 @@ Pelo material das aulas: input, print, casting, if/elif/else, for, while, f-stri
 - [ ] O programa roda com python3 src/main.py e sem instalar nada
 - [ ] Testado com entradas erradas (letra no lugar de número, valor fora da faixa, JSON ausente ou corrompido)
 - [ ] Nome completo e RM dos 5 no readme.md
-- [ ] Todos sabem explicar o código
 - [ ] Um único ZIP, enviado por um integrante, no Teams

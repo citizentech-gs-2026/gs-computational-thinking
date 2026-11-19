@@ -18,7 +18,7 @@ Garoa: um sensor barato no ar e na parede fria de cada cômodo calcula o ponto d
 
 ## O que esta parte faz
 
-Aplicação Python de terminal que processa as medições e decide. Ela cadastra casas e cômodos em JSON, registra leituras do ar e da parede, calcula o ponto de orvalho e a umidade na parede, classifica o estado (SECO, ATENÇÃO, RISCO, CONDENSAÇÃO), diz se abrir a janela ajuda ou piora e gera o laudo do mês. Usa menu, validação de entrada, try/except e match/case. O plano completo está em docs/PLANO.md.
+Aplicação Python de terminal que processa as medições e decide. Ela cadastra casas e cômodos em JSON, registra leituras do ar e da parede, calcula o ponto de orvalho e a umidade na parede, classifica o estado (SECO, ATENÇÃO, RISCO, CONDENSAÇÃO), diz se abrir a janela ajuda ou piora e gera o laudo do mês. Usa menu, validação de entrada, try/except e match/case. O plano completo está em docs/PLANO.md, no repositório do grupo (essa pasta não vai no ZIP).
 
 ## Estrutura
 
@@ -29,19 +29,19 @@ Aplicação Python de terminal que processa as medições e decide. Ela cadastra
 - testes/ conferência das contas com os valores de referência (`python3 testes/testar_calculos.py`)
 - entrega/montar_zip.py gera o ZIP da entrega
 
-O ZIP enviado no Teams tem só src/, dados/garoa.json, prompt.md e readme.md. As pastas docs/, testes/ e entrega/ ficam apenas no repositório.
+O ZIP enviado no Teams tem só src/, dados/garoa.json, prompt.md (e uma cópia idêntica chamada prompts.md, porque o enunciado usa os dois nomes) e readme.md. As pastas docs/, testes/ e entrega/ ficam apenas no repositório.
 
 ## Como rodar
 
 Precisa de Python 3.10 ou mais novo (por causa do match/case). Não precisa instalar nada: só a biblioteca padrão do Python.
 
-Abra o terminal **na pasta raiz do projeto** (a que tem src/ e dados/) e rode:
+Abra o terminal na pasta do projeto (a que tem src/ e dados/) e rode:
 
 ```
 python3 src/main.py
 ```
 
-No Windows, se `python3` não funcionar, use `python src/main.py`. O programa lê e grava `dados/garoa.json` por caminho relativo, por isso precisa ser rodado da raiz. Ele já abre com uma casa de exemplo (Apartamento 12, com Quarto e Sala) e 12 leituras de outubro e novembro de 2026. Para testar o laudo, escolha a opção 6 e digite `2026-10` ou `2026-11`.
+No Windows, se `python3` não funcionar, use `python src/main.py`. O programa descobre a pasta do projeto a partir do próprio arquivo e lê e grava `dados/garoa.json` ali, então também funciona se for aberto de outra pasta, com o caminho completo do main.py (se a pasta `dados/` não existir, ele a cria ao gravar). Não há `requirements.txt` porque o programa não usa nenhuma biblioteca externa: só `json`, `math` e `os` (para montar os caminhos). Ele já abre com uma casa de exemplo (Apartamento 12, com Quarto e Sala) e 12 leituras de outubro e novembro de 2026. Para testar o laudo, escolha a opção 6 e digite `2026-10` ou `2026-11`.
 
 ## Funcionalidades
 
@@ -74,8 +74,17 @@ Proteções: número inválido, valor fora da faixa, data que não existe (como 
 | src/menu.py | Uma função para cada opção do menu e as telas |
 | src/calculos.py | Contas: pressão de saturação, ponto de orvalho, umidade na parede, umidade absoluta, estado e janela |
 | src/entrada.py | Leitura com validação: números, textos, datas, meses, s/n e escolha em lista |
-| src/dados.py | Lê e grava o JSON (json.load e json.dump) e faz as buscas nas listas |
+| src/dados.py | Lê e grava o JSON (json.load e json.dump), monta os caminhos dos arquivos e faz as buscas nas listas |
 | dados/garoa.json | Casas, cômodos e leituras de exemplo |
+
+## Integração com o restante da solução
+
+Esta aplicação é a parte "lógica" da Garoa e conversa com as outras partes pelas mesmas regras:
+
+- **Sensor (ESP32):** o kit mede a temperatura e a umidade do ar e a temperatura da parede. O programa recebe esses mesmos três números (digitados, na simulação) e usa os mesmos limites do sensor: umidade na parede de 70% (ATENÇÃO) e 80% (RISCO), e CONDENSAÇÃO quando a parede está no ponto de orvalho ou abaixo.
+- **App web (gs-web-app):** as contas (fórmula de Magnus com A = 17,62 e B = 243,12) e os estados são os mesmos do app, então o mesmo cômodo recebe a mesma resposta no app e aqui. O JSON de leituras tem os mesmos campos (data, ar, parede, ponto de orvalho, umidade na parede e estado) que o histórico do app, e o laudo do mês é o mesmo conceito do laudo do app.
+- **Matemática (Differentiated Problem Solving):** a decisão "abrir a janela?" usa a umidade absoluta de dentro e de fora. O modelo cúbico da umidade de fora (dados do INMET) mostra que a umidade externa passa de 80% entre 21h e 7h, e por isso a recomendação típica é fechar a janela de madrugada e abrir à tarde.
+- **Experiência e pitch:** o laudo do mês usa mensagens que não culpam o morador, como na interface do app.
 
 ## Equipe
 
@@ -89,4 +98,4 @@ Proteções: número inválido, valor fora da faixa, data que não existe (como 
 
 ## Entrega
 
-O que enviar, o checklist e os critérios de nota estão em docs/ENTREGA.md.
+O que enviar, o checklist e os critérios de nota estão em docs/ENTREGA.md, no repositório do grupo.
